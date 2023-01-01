@@ -1,0 +1,10 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_lambda_function" "lambda" {
+  function_name = "hello-world"
+  runtime = "java8"
+  handler = "com.example.HelloWorldApplication::main"
+  code = "./hello-world.jar"
+}
