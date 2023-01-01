@@ -1,0 +1,17 @@
+import org.graalvm.compiler.api.directives.GraalDirectives;
+import org.graalvm.compiler.api.replacements.Fold;
+
+public class MyClass {
+  @Fold
+  @CompileStatic
+  public static int add(int a, int b) {
+    return a + b;
+  }
+
+  public static void main(String[] args) {
+    int result = add(1, 2);
+    GraalDirectives.instrumentationBegin();
+    System.out.println(result);
+    GraalDirectives.instrumentationEnd();
+  }
+}
