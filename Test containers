@@ -1,0 +1,17 @@
+public class MyIntegrationTest {
+  @Rule
+  public PostgreSQLContainer postgres = new PostgreSQLContainer();
+
+  @Test
+  public void testWithDatabase() {
+    // Connect to the database using the host, port, and credentials
+    // provided by the PostgreSQLContainer
+    Connection conn = DriverManager.getConnection(
+      postgres.getJdbcUrl(),
+      postgres.getUsername(),
+      postgres.getPassword());
+
+    // Run your tests against the database
+    // ...
+  }
+}
